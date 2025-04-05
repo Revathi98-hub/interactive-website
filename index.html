@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav-wrapper">
+        <nav>
+            <div class="logo">InteractiveWeb</div>
+            <ul class="nav-links">
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#interactive">Interactive</a></li>
+                <li><a href="#api">API Demo</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to My Interactive Website</h1>
+        <p class="subtitle">A showcase of modern web development techniques</p>
+    </header>
+
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About This Project</h2>
+            <p class="main-paragraph">
+                This website demonstrates various interactive elements and modern web development techniques. It's designed to be responsive and user-friendly across all devices.
+            </p>
+            <p class="secondary-paragraph">
+                The site features a clean, modern design with subtle animations and transitions to enhance the user experience. It also includes examples of API integration and form validation.
+            </p>
+            <img src="https://via.placeholder.com/800x400" alt="Web Development Illustration">
+        </section>
+
+        <!-- Interactive Section -->
+        <section id="interactive" class="interactive-section">
+            <h2>Interactive Elements</h2>
+            <p>
+                Click the button below to change the background color of the page. This demonstrates a simple JavaScript interaction that modifies the DOM.
+            </p>
+            <button id="colorChangeBtn">Change Background Color</button>
+            <p class="secondary-paragraph">
+                This is a simple example of how JavaScript can be used to create interactive elements on a webpage. Try clicking the button multiple times to cycle through different colors.
+            </p>
+        </section>
+
+        <!-- API Integration Section -->
+        <section id="api" class="api-section">
+            <h2>API Integration</h2>
+            <p>
+                This section demonstrates how to fetch and display data from an external API. Click the button below to load posts from the JSONPlaceholder API.
+            </p>
+            <button id="fetchDataBtn">Fetch Data</button>
+            <div id="apiData" class="api-container">
+                <!-- API data will be displayed here -->
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="form-section">
+            <h2>Contact Form</h2>
+            <p>
+                Fill out the form below to get in touch. All fields marked with an asterisk (*) are required.
+            </p>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" placeholder="Your name">
+                    <span id="nameError" class="error-message"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="Your email address">
+                    <span id="emailError" class="error-message"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your phone number (optional)">
+                    <span id="phoneError" class="error-message"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject">
+                        <option value="">Please select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Technical Support</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span id="subjectError" class="error-message"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your message"></textarea>
+                    <span id="messageError" class="error-message"></span>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms" class="checkbox-label">I agree to the terms and conditions *</label>
+                    <span id="termsError" class="error-message"></span>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit</button>
+                    <button type="reset" class="reset-btn">Reset</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Interactive Website. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
