@@ -64,52 +64,54 @@ document.addEventListener('DOMContentLoaded', function() {
             apiDataContainer.innerHTML = '<p class="loading-text">Loading data... <span class="spinner"></span></p>';
 
             // Fetch data from JSONPlaceholder API
-            fetch('[https://jsonplaceholder.typicode.com/posts?_limit=5')](https://jsonplaceholder.typicode.com/posts?_limit=5'))
-                .then(response => {
-                    // Check if the response is ok (status in the range 200-299)
-                    if (!response.ok) {
-                        throw new Error(`Network response was not ok: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Replace the Lorem ipsum content with more realistic English content
-                    const englishPosts = [
-                        {
-                            id: 1,
-                            title: "Getting Started with Web Development",
-                            body: "Web development is an exciting field that combines creativity and technical skills. To get started, learn the basics of HTML, CSS, and JavaScript. These three technologies form the foundation of modern web development."
-                        },
-                        {
-                            id: 2,
-                            title: "The Importance of Responsive Design",
-                            body: "In today's world where people access websites from various devices, responsive design is crucial. It ensures your website looks and functions well on desktops, tablets, and mobile phones, providing a seamless user experience across all platforms."
-                        },
-                        {
-                            id: 3,
-                            title: "JavaScript Frameworks: A Comparison",
-                            body: "There are several popular JavaScript frameworks like React, Angular, and Vue.js. Each has its strengths and weaknesses. React is known for its virtual DOM, Angular for its comprehensive structure, and Vue for its simplicity and flexibility."
-                        },
-                        {
-                            id: 4,
-                            title: "Best Practices for Web Accessibility",
-                            body: "Web accessibility ensures that websites are usable by people with disabilities. Some best practices include using semantic HTML, providing alt text for images, ensuring sufficient color contrast, and making your site keyboard navigable."
-                        },
-                        {
-                            id: 5,
-                            title: "Introduction to API Integration",
-                            body: "APIs allow your website to communicate with other services and fetch dynamic data. Understanding how to use fetch() or axios to make API calls, handle responses, and update your UI accordingly is an essential skill for modern web developers."
+            fetchDataBtn.addEventListener('click', function() {
+                apiDataContainer.innerHTML = '<p class="loading-text">Loading data... <span class="spinner"></span></p>';
+            
+                // Corrected fetch URL
+                fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Network response was not ok: ${response.status}`);
                         }
-                    ];
-                    
-                    // Process the data and update the DOM with our English posts
-                    displayPosts(englishPosts);
-                })
-                .catch(error => {
-                    // Handle any errors that occurred during fetch
-                    apiDataContainer.innerHTML = `<p class="error-message">Error: ${error.message}</p>`;
-                    console.error('Fetch error:', error);
-                });
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Your replacement with English posts
+                        const englishPosts = [
+                            {
+                                id: 1,
+                                title: "Getting Started with Web Development",
+                                body: "Web development is an exciting field that combines creativity and technical skills. To get started, learn the basics of HTML, CSS, and JavaScript. These three technologies form the foundation of modern web development."
+                            },
+                            {
+                                id: 2,
+                                title: "The Importance of Responsive Design",
+                                body: "In today's world where people access websites from various devices, responsive design is crucial. It ensures your website looks and functions well on desktops, tablets, and mobile phones, providing a seamless user experience across all platforms."
+                            },
+                            {
+                                id: 3,
+                                title: "JavaScript Frameworks: A Comparison",
+                                body: "There are several popular JavaScript frameworks like React, Angular, and Vue.js. Each has its strengths and weaknesses. React is known for its virtual DOM, Angular for its comprehensive structure, and Vue for its simplicity and flexibility."
+                            },
+                            {
+                                id: 4,
+                                title: "Best Practices for Web Accessibility",
+                                body: "Web accessibility ensures that websites are usable by people with disabilities. Some best practices include using semantic HTML, providing alt text for images, ensuring sufficient color contrast, and making your site keyboard navigable."
+                            },
+                            {
+                                id: 5,
+                                title: "Introduction to API Integration",
+                                body: "APIs allow your website to communicate with other services and fetch dynamic data. Understanding how to use fetch() or axios to make API calls, handle responses, and update your UI accordingly is an essential skill for modern web developers."
+                            }
+                        ];
+            
+                        displayPosts(englishPosts);
+                    })
+                    .catch(error => {
+                        apiDataContainer.innerHTML = `<p class="error-message">Error: ${error.message}</p>`;
+                        console.error('Fetch error:', error);
+                    });
+            });
         });
     }
 
